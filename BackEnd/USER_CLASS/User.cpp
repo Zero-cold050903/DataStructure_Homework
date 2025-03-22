@@ -78,4 +78,3 @@ double Teacher::getSalary() const { return salary; }
 std::string Teacher::getHireDate() const { return hireDate; }
 Teacher::Permission Teacher::getPermission() const { return permission; }
 
-// 原people类已废弃，建议删除
