@@ -6,10 +6,10 @@
 #include <sstream>
 #include <algorithm>
 // 初始化数据库
-std::FILE*
+std::basic_fstream<char>&
 Init_data_base();
 // 释放数据库
-void Erase_data_base();
+void Erase_data_base(std::basic_fstream<char>& database);
 /*
 * to add the data in the database
 * we support three types of add operation
@@ -20,10 +20,13 @@ void Erase_data_base();
 * @param data_to_add: the data to be added
 */
 template <typename T>
-void append_data(
-	std::FILE& database, 
+void 
+append_data(std::basic_fstream<char>& database, 
 	         T data_to_add);
-
+template <typename T>
+void
+prepend_data(std::basic_fstream<char>& database,
+			T data)
 /*
 * to delete the data in the database
 * & out of the consideration for the data type
@@ -35,7 +38,7 @@ void append_data(
 */
 template<typename T>
 void delete_data(
-	std::FILE& database,
+	std::basic_fstream<char>& database,
 	         T data_to_delete);
 
 /*
@@ -47,12 +50,15 @@ void delete_data(
 */
 template<typename T>
 void update_data(
-	std::FILE& database,
+	std::basic_fstream<char>& database,
 	         T prev_data,
 		     T new_data);
 //search the data in the database
 template<typename T>
 T& search_data(
-	std::FILE& database,
+	std::fstream& database,
 		     T flag);
+template <typename T>
+
+
 
